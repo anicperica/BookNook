@@ -1,8 +1,8 @@
 interface IconProps {
   className?: string;
-  width?: number | string;
-  height?: number | string;
-  color?: string;
+  width: number | string;
+  height: number | string;
+  color: string;
 }
 
 export default function RefreshIcon({

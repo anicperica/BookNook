@@ -1,13 +1,16 @@
-import Navbar from "./components/Navbar"
-import DiscoverContent from "./components/DiscoverContent"
+import { Routes, Route } from 'react-router-dom'
+import DiscoverPage from './page/discoverPage/DiscoverPage'
 
 function App() {
   
 
   return (
-    <>
-    <Navbar/>
-    <DiscoverContent/>
+    <>  
+     <Routes>
+      <Route path="/" element={<DiscoverPage/>} />
+     
+    </Routes>
+ 
     </>
   )
 }

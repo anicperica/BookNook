@@ -1,5 +1,5 @@
-import BookIcon from "./iconComponents/BookICon";
-import RefreshIcon from "./iconComponents/RefreshIcon";
+import BookIcon from "./IconComponents/BookICon";
+import RefreshIcon from "./IconComponents/RefreshIcon";
 export default function DiscoverContent() {
   return (
     <div className="flex flex-col justify-center items-center py-15 bg-amber-100">
@@ -22,7 +22,7 @@ export default function DiscoverContent() {
         <p>Books</p>
       </div>
       <button className="flex justify-center items-center bg-primary-orange px-5 py-3 rounded-xl gap-2 ">
-        <RefreshIcon />
+        <RefreshIcon width={20} height={20}color="black"/>
         Refresh Recommendations
       </button>
     </div>

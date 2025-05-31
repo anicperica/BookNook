@@ -1,4 +1,5 @@
-import BookIcon from "./iconComponents/BookICon";
+import { Link } from "react-router-dom";
+import BookIcon from "./IconComponents/BookICon";
 
 export default function Navbar() {
   return (
@@ -8,8 +9,8 @@ export default function Navbar() {
         <h1>BookNook</h1>
       </div>
       <div className="flex gap-5">
-        <button className="hover:text-primary-orange hover:underline">Discover</button>
-        <button className="hover:text-primary-orange hover:underline">My Library</button>
+        <Link to="/" className="hover:text-primary-orange hover:underline">Discover</Link>
+        <Link to="" className="hover:text-primary-orange hover:underline">My Library</Link>
       </div>
     </div>
   );
