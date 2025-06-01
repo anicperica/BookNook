@@ -1,9 +1,4 @@
-interface IconProps {
-  className?: string;
-  width: number | string;
-  height: number | string;
-  color: string;
-}
+import type { IconProps } from "../../types";
 
 export default function BookIcon({
   className,
@@ -22,7 +17,6 @@ export default function BookIcon({
       stroke-width="1.5"
       stroke="currentColor"
       style={{ color }}
-      
     >
       <path
         stroke-linecap="round"

@@ -1,5 +1,6 @@
 import BookImage from "../assets/images/BookImage.jpg";
-import HearthIcon from "../components/IconComponents/HearthIcon";
+import HearthIcon from "./svg/HearthIcon";
+
 interface BookCardProps {
   title: string;
   author: string;

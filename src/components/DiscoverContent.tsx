@@ -1,5 +1,9 @@
-import BookIcon from "./IconComponents/BookICon";
-import RefreshIcon from "./IconComponents/RefreshIcon";
+import BookIcon from "./svg/BookIcon";
+import RefreshIcon from "./svg/RefreshIcon";
+import DiscoverButton from "./ui/DiscoverButton";
+
+const LIMIT_ARRAY = [1, 2, 3];
+
 export default function DiscoverContent() {
   return (
     <div className="flex flex-col justify-center items-center py-15 bg-amber-100">
@@ -8,21 +12,16 @@ export default function DiscoverContent() {
       <h2 className="text-xl">
         Find new books, and build your personal library.
       </h2>
+
       <div className="flex  justify-center items-center gap-5 py-5 ">
         <p>Show:</p>
-        <button className="w-8 h-8 p-1 rounded-full bg-white hover:bg-primary-orange">
-          1
-        </button>
-        <button className="w-8 h-8 p-1 rounded-full bg-white hover:bg-primary-orange">
-          2
-        </button>
-        <button className="w-8 h-8 p-1 rounded-full bg-white hover:bg-primary-orange">
-          3
-        </button>
+        {LIMIT_ARRAY.map((limit) => (
+          <DiscoverButton key={limit}>{limit}</DiscoverButton>
+        ))}
         <p>Books</p>
       </div>
-      <button className="flex justify-center items-center bg-primary-orange px-5 py-3 rounded-xl gap-2 ">
-        <RefreshIcon width={20} height={20}color="black"/>
+      <button className="flex justify-center items-center bg-primary px-5 py-3 rounded-xl gap-2 cursor-pointer">
+        <RefreshIcon width={20} height={20} color="black" />
         Refresh Recommendations
       </button>
     </div>
