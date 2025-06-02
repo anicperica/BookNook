@@ -1,11 +1,29 @@
 import { Routes, Route } from "react-router-dom";
-import DiscoverPage from "./pages/discoverPage/DiscoverPage";
-
+import DiscoverPage from "./pages/DiscoveryPage/DiscoverPage";
+import LibraryPage from "./pages/LibraryPage/LibraryPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<DiscoverPage />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <DiscoverPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/library"
+          element={
+            <ProtectedRoute>
+              <LibraryPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>
   );
