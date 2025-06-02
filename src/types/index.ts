@@ -1,6 +1,9 @@
-export interface User {
-    email: string;
+export interface DiscoverButtonProps {
+  children: React.ReactNode;
+    className?: string;
+  onClick: () => void;
 }
+
 
 export interface IconProps {
   className?: string;

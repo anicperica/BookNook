@@ -21,7 +21,7 @@ export default function BookCard({ title, author }: BookCardProps) {
       </div>
       <div className=" flex flex-col gap-2 px-4 pt-3  ">
         <h1 className="text-xl font-bold">{title}</h1>
-        <h2 className="text-gray-600">{author}</h2>
+        <h2 className="text-gray-600">{`by ${author}`}</h2>
       </div>
     </div>
   );

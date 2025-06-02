@@ -7,19 +7,26 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent)=>{
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    try{
-        const res = await axios.post("https://bootcamp2025.depster.me/login", {email,password});
-        localStorage.setItem("token",res.data.token);
-        navigate("/");
-    }catch(err){
-    alert("Login failed");
+    try {
+      const res = await axios.post("https://bootcamp2025.depster.me/login", {
+        email,
+        password,
+      });
+      console.log(res.data);
+      localStorage.setItem("token", res.data.data.token);
+      navigate("/");
+    } catch (err) {
+      alert("Login failed");
     }
   };
 
   return (
-    <form onSubmit={handleLogin} className="flex flex-col justify-center items-center h-screen p-10 gap-5">
+    <form
+      onSubmit={handleLogin}
+      className="flex flex-col justify-center items-center h-screen p-10 gap-5"
+    >
       <h1 className="text-xl font-bold">Login</h1>
       <input
         value={email}
@@ -28,7 +35,7 @@ export default function LoginPage() {
         className="border p-2 rounded"
         required
       />
-       <input
+      <input
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
@@ -36,8 +43,12 @@ export default function LoginPage() {
         className="border p-2 rounded"
         required
       />
-      <button type="submit" className="bg-primary text-white p-2 rounded cursor-pointer">Login</button>
-      
+      <button
+        type="submit"
+        className="bg-primary text-white p-2 rounded cursor-pointer"
+      >
+        Login
+      </button>
     </form>
   );
 }

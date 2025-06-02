@@ -1,10 +1,13 @@
-interface DiscoverButtonProps {
+ interface DiscoverButtonProps {
   children: React.ReactNode;
+  className?: string;
+  onClick: () => void;
 }
 
-export default function DiscoverButton({ children }: DiscoverButtonProps) {
+
+export default function DiscoverButton({ children ,onClick,className}: DiscoverButtonProps) {
   return (
-    <button className="w-8 h-8 p-1 rounded-full bg-white hover:bg-primary cursor-pointer">
+    <button onClick={onClick}   className={`w-8 h-8 p-1 rounded-full  cursor-pointer ${className}`}>
       {children}
     </button>
   );
