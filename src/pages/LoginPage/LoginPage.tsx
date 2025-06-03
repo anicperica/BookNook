@@ -14,8 +14,8 @@ export default function LoginPage() {
         email,
         password,
       });
-      console.log(res.data);
-      localStorage.setItem("token", res.data.data.token);
+      console.log("ovo je vraceno", res.data);
+      localStorage.setItem("token", res.data.data.token); //ovo u jwt preimenovat 
       navigate("/");
     } catch (err) {
       alert("Login failed");

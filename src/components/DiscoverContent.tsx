@@ -4,15 +4,17 @@ import DiscoverButton from "./ui/DiscoverButton";
 
 const LIMIT_ARRAY = [1, 2, 3];
 
+interface DiscoverContentProps {
+  queryLimit: number;
+  setQueryLimit: (number: number) => void;
+  onRefresh: () => void;
+}
+
 export default function DiscoverContent({
   queryLimit,
   setQueryLimit,
   onRefresh,
-}: {
-  queryLimit: number;
-  setQueryLimit: (n: number) => void;
-  onRefresh: () => void;
-}) {
+}: DiscoverContentProps) {
   return (
     <div className="flex flex-col justify-center items-center py-15 bg-amber-100">
       <BookIcon width={50} height={50} color="#b66b02" />
