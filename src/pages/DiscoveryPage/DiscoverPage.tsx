@@ -8,6 +8,7 @@ export default function DiscoverPage() {
 
   const handleRefresh = () => setRefreshKey((key) => key + 1);
 
+  
   return (
     <>
       <div className="bg-amber-50">
