@@ -51,7 +51,7 @@ export default function BookList({ limit, refreshkey }: BookListProps) {
     }
   };
   return (
-    <div className="flex items-center justify-center gap-4 mb-6">
+    <div className="flex flex-wrap items-center justify-center gap-4 mb-10 max-md:flex-col max-md:items-start">
       {books.map((book, index) => (
         <BookCard
           key={index}

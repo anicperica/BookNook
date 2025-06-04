@@ -14,7 +14,7 @@ export default function BookCard({
   onSave,
 }: BookCardProps) {
   return (
-    <div className="flex flex-col justify-start items-start max-w-[300px] h-[300px] rounded-lg overflow-hidden bg-white  shadow-md transform transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <div className="flex flex-col justify-start items-start max-w-[400px] min-w-[200px] h-[450px] rounded-lg overflow-hidden bg-white  shadow-md transform transition duration-300 hover:-translate-y-2 hover:shadow-xl group">
       <div className="relative w-full h-[85%]">
         <button
           onClick={onSave}
@@ -33,7 +33,7 @@ export default function BookCard({
         />
       </div>
       <div className=" flex flex-col gap-2 px-4 py-3  ">
-        <h1 className="text-xl font-bold">{title}</h1>
+        <h1 className="text-xl font-bold group-hover:text-primary-700">{title}</h1>
         <h2 className="text-gray-600">{`by ${author}`}</h2>
       </div>
     </div>

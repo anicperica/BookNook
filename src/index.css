@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #b66b02;
+  --color-primary-700: #1d4ed8;
+  --color-primary-600: #2563eb;
+  --color-primary-500: #3b82f6;
+  --color-primary-400: #60a5fa;
+  --color-primary-50: #eff6ff;
+  --bg-gradient-custom: linear-gradient(to right, #cbd5e1, #64748b);
+}
+@layer utilities {
+  .bg-gradient-custom {
+    background-image: var(--bg-gradient-custom);
+  }
 }
