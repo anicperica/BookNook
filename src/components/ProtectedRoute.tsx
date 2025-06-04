@@ -9,7 +9,7 @@ export default function ProtectedRoute({
 
   if (!token) {
     return <Navigate to="/login" replace />;
-    // window.location.href = "/login";
+   
     return null;
   }
 
