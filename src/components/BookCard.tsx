@@ -24,6 +24,7 @@ export default function BookCard({
             width={25}
             height={25}
             color={isSaved ? "red" : "black"}
+            
           />
         </button>
         <img

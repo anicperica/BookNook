@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import BookCard from "./BookCard";
 import type { Book } from "../types";
+import Cookies from "js-cookie";
 
 interface BookListProps {
   limit: number;
@@ -13,7 +14,7 @@ export default function BookList({ limit, refreshkey }: BookListProps) {
   const [savedBooks, setSavedBooks] = useState<Book[]>(() => {
     return JSON.parse(localStorage.getItem("savedBooks") || "[]");
   });
-  const token = localStorage.getItem("token");
+  const token = Cookies.get("JWT");
 
   useEffect(() => {
     axios

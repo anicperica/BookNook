@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Cookies from "js-cookie";
 import BookIcon from "./svg/BookIcon";
 import BurgerIcon from "./svg/BurgerIcon";
 import BurgerMenu from "./BurgerMenu";
-import XIcon from "../components/svg/XICon"
+import XIcon from "../components/svg/XICon";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    Cookies.remove("JWT");
     navigate("/login");
   };
   return (
@@ -39,10 +40,19 @@ export default function Navbar() {
           Logout
         </button>
         <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-          {isOpen ? <XIcon width={30} height={30} color="black"/> :<BurgerIcon width={30} height={30} color="black" />}
+          {isOpen ? (
+            <XIcon width={30} height={30} color="black" />
+          ) : (
+            <BurgerIcon width={30} height={30} color="black" />
+          )}
         </button>
 
-        {isOpen && <BurgerMenu onClose={() => setIsOpen(!isOpen)} onClick={handleLogout} />}
+        {isOpen && (
+          <BurgerMenu
+            onClose={() => setIsOpen(!isOpen)}
+            onClick={handleLogout}
+          />
+        )}
       </div>
     </div>
   );

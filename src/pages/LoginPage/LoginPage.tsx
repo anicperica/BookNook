@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -14,11 +15,20 @@ export default function LoginPage() {
         email,
         password,
       });
-      console.log("ovo je vraceno", res.data);
-      localStorage.setItem("token", res.data.data.token);
+      Cookies.set("JWT", res.data.data.token, { expires: 7 });
       navigate("/");
-    } catch (err) {
-      alert("Login failed");
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 401) {
+          alert("Invalid email or password.");
+        } else if (error.response?.status === 429) {
+          alert("Too many attempts. Please wait and try again.");
+        } else {
+          alert("Server error. Please try again later.");
+        }
+      } else {
+        alert("Network error. Please check your connection.");
+      }
     }
   };
 
