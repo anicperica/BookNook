@@ -16,7 +16,7 @@ export default function DiscoverContent({
   onRefresh,
 }: DiscoverContentProps) {
   return (
-    <div className="flex flex-col justify-center items-center py-15 bg-gradient-custom">
+    <div className="flex flex-col justify-center items-center  py-15 bg-gradient-custom">
       <BookIcon width={50} height={50} color="#2563eb" />
       <h1 className="text-4xl font-bold py-4 max-sm:text-xl">Discover your next Great Read</h1>
       <h2 className="text-xl max-sm:text-xs">

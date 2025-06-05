@@ -17,7 +17,8 @@ export default function LibraryBookList() {
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4 mb-6  flex-grow max-md:flex-col">
+    
+    <div className="grid grid-cols-1 sm:grid-cols-2 custom:grid-cols-3  mx-auto gap-5 mb-6 ">
       {savedBooks.length === 0 && <p className="text-xl max-sm:text-xl max-sm:text-center">Your library is empty. Save books to see them here..</p>}
       {savedBooks.map((book, index) => (
         <BookCard
@@ -29,5 +30,7 @@ export default function LibraryBookList() {
         />
       ))}
     </div>
+  
+  
   );
 }

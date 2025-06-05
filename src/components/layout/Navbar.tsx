@@ -15,7 +15,7 @@ export default function Navbar() {
     navigate("/login");
   };
   return (
-    <div className=" relative flex justify-between items-center  px-10 py-4 bg-white text-xl">
+    <div className=" relative flex justify-between items-center   px-10 py-4 bg-white text-xl">
       <div className="flex flex-row justify-center items-center">
         <BookIcon width={30} height={30} color="#1d4ed8" />
         <h1>BookNook</h1>

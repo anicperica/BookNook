@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import BookCard from "./BookCard";
-import type { Book } from "../types";
+import BookCard from "../BookCard";
+import type { Book } from "../../types";
 import Cookies from "js-cookie";
 
 interface BookListProps {

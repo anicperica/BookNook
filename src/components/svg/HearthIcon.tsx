@@ -5,6 +5,7 @@ export default function HearthIcon({
   width = "25",
   height = "25",
   color = "black",
+
 }: IconProps) {
   return (
     <svg
@@ -16,7 +17,7 @@ export default function HearthIcon({
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      
+      style={{ color }}
     >
       <path
         stroke-linecap="round"

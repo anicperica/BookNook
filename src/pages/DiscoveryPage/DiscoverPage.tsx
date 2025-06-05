@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import DiscoverContent from "../../components/discover/DiscoverContent";
-import BookList from "../../components/BookList";
+import DiscoverContent from "../../components/DiscoveryPage/DiscoverContent";
+import BookList from "../../components//DiscoveryPage/BookList";
 
 export default function DiscoverPage() {
   const [queryLimit, setQueryLimit] = useState(3);
