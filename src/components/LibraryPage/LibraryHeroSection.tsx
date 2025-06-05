@@ -1,11 +1,11 @@
-import HearthIcon from "../../components/svg/HearthIcon"
+import HearthIcon from "../svg/HearthIcon"
 
 export default function LibraryHeroSection() {
   return (
-    <div className="flex flex-col justify-center items-center gap-4 pt-15 pb-10 bg-gradient-custom">
+    <div className="flex flex-col justify-center items-center w-full gap-4 pt-15 pb-10 bg-gradient-custom">
       <HearthIcon width={50} height={50} color="red" />
       <h1 className="text-4xl max-sm:text-3xl">My library</h1>
-      <h2 className="text-2xl max-sm:text-xl max-md:text-center">
+      <h2 className="text-2xl text-center max-sm:text-xl max-md:text-center">
         Your personal collection of saved books. Save books you love or want to
         read later.
       </h2>
