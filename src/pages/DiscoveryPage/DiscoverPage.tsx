@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Navbar from "../../components/Navbar";
+
 import DiscoverContent from "../../components/DiscoverContent";
 import BookList from "../../components/BookList";
-import Footer from "../../components/Footer";
 
 export default function DiscoverPage() {
   const [queryLimit, setQueryLimit] = useState(3);
@@ -13,7 +12,6 @@ export default function DiscoverPage() {
   return (
     <>
       <div className="bg-blue-50 scroll-smooth">
-        <Navbar />
         <DiscoverContent
           queryLimit={queryLimit}
           setQueryLimit={setQueryLimit}
@@ -25,7 +23,6 @@ export default function DiscoverPage() {
         <div className="flex flex-row  justify-center gap-10 ">
           <BookList limit={queryLimit} refreshkey={refreshKey} />
         </div>
-        <Footer />
       </div>
     </>
   );

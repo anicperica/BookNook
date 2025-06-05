@@ -15,10 +15,10 @@ export default function BookList({ limit, refreshkey }: BookListProps) {
     return JSON.parse(localStorage.getItem("savedBooks") || "[]");
   });
   const token = Cookies.get("JWT");
-
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     axios
-      .get(`https://bootcamp2025.depster.me/api/books?limit=${limit}`, {
+      .get(`${API_BASE_URL}/api/books?limit=${limit}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -33,23 +33,24 @@ export default function BookList({ limit, refreshkey }: BookListProps) {
       });
   }, [refreshkey, limit]);
 
-  const handleSave = (book: Book) => {
-    const isAlreadySaved = savedBooks.find(
+  const isBookSaved = (book: Book) =>
+    savedBooks.some(
       (savedBook) =>
         savedBook.title === book.title && savedBook.author === book.author
     );
-    if (isAlreadySaved) {
-      const updated = savedBooks.filter(
+
+  const handleSaveBook = (book: Book) => {
+    let updated;
+    if (isBookSaved(book)) {
+      updated = savedBooks.filter(
         (savedBook) =>
           !(savedBook.title === book.title && savedBook.author === book.author)
       );
-      setSavedBooks(updated);
-      localStorage.setItem("savedBooks", JSON.stringify(updated));
     } else {
-      const updated = [...savedBooks, book];
-      setSavedBooks(updated);
-      localStorage.setItem("savedBooks", JSON.stringify(updated));
+      updated = [...savedBooks, book];
     }
+    setSavedBooks(updated);
+    localStorage.setItem("savedBooks", JSON.stringify(updated));
   };
   return (
     <div className="flex flex-wrap items-center justify-center gap-4 mb-10 max-md:flex-col max-md:items-start">
@@ -58,14 +59,8 @@ export default function BookList({ limit, refreshkey }: BookListProps) {
           key={index}
           title={book.title}
           author={book.author}
-          onSave={() => handleSave(book)}
-          isSaved={
-            !!savedBooks.find(
-              (savedBook) =>
-                savedBook.title === book.title &&
-                savedBook.author === book.author
-            )
-          }
+          onSave={() => handleSaveBook(book)}
+          isSaved={isBookSaved(book)}
         />
       ))}
     </div>

@@ -3,26 +3,29 @@ import DiscoverPage from "./pages/DiscoveryPage/DiscoverPage";
 import LibraryPage from "./pages/LibraryPage/LibraryPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Layout from "./components/Layout";
 function App() {
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <DiscoverPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/library"
-          element={
-            <ProtectedRoute>
-              <LibraryPage />
-            </ProtectedRoute>
-          }
-        />
+        <Route element={<Layout />}>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <DiscoverPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/library"
+            element={
+              <ProtectedRoute>
+                <LibraryPage />
+              </ProtectedRoute>
+            }
+          />
+        </Route>
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>

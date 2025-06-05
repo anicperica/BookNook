@@ -39,7 +39,10 @@ export default function Navbar() {
         >
           Logout
         </button>
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="md:hidden"
+        >
           {isOpen ? (
             <XIcon width={30} height={30} color="black" />
           ) : (
