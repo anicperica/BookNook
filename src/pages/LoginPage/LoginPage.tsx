@@ -2,16 +2,43 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { z } from "zod";
+
+const loginSchema = z.object({
+  email: z.string().email({ message: "Enter valid email" }),
+  password: z
+    .string()
+    .min(4, {
+      message: "Password is required and must be at least 4 characters long.",
+    }),
+});
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading,setLoading] = useState(false);
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>(
+    {}
+  );
   const navigate = useNavigate();
+  const API_LOGIN_ENDPOINT = import.meta.env.VITE_API_LOGIN_ENDPOINT
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    const result = loginSchema.safeParse({ email, password });
+    if (!result.success) {
+      const fieldErrors: { email?: string; password?: string } = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0] === "email") fieldErrors.email = err.message;
+        if (err.path[0] === "password") fieldErrors.password = err.message;
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+    setErrors({});
+    setLoading(true);
     try {
-      const res = await axios.post("https://bootcamp2025.depster.me/login", {
+      const res = await axios.post(API_LOGIN_ENDPOINT, {
         email,
         password,
       });
@@ -20,7 +47,7 @@ export default function LoginPage() {
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response?.status === 401) {
-          alert("Invalid email or password.");
+          setErrors({ password: "Invalid password." });
         } else if (error.response?.status === 429) {
           alert("Too many attempts. Please wait and try again.");
         } else {
@@ -29,6 +56,8 @@ export default function LoginPage() {
       } else {
         alert("Network error. Please check your connection.");
       }
+    } finally{
+      setLoading(false);
     }
   };
 
@@ -48,21 +77,28 @@ export default function LoginPage() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           className="w-full border-2 border-gray-400 p-2 rounded"
-          required
+          
         />
+        {errors.email && (
+          <span className="text-red-500 text-sm">{errors.email}</span>
+        )}
         <input
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           type="password"
           className="w-full border-2 border-gray-400 p-2 rounded"
-          required
+          
         />
+        {errors.password && (
+          <span className="text-red-500 text-sm">{errors.password}</span>
+        )}
         <button
           type="submit"
+          disabled={loading}
           className="w-full py-2 bg-primary-600 text-white hover:bg-primary-700 rounded cursor-pointer"
         >
-          Login
+          {loading ? "Logging in" : "Login"}
         </button>
       </div>
     </form>
