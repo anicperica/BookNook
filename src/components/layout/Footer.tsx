@@ -1,6 +1,6 @@
-import BookIcon from "./svg/BookIcon";
-import GitHubIcon from "../components/svg/GithubIcon";
-import MailIcon from "../components/svg/MailIcon";
+import BookIcon from "../../components/svg/BookIcon";
+import GitHubIcon from "../svg/GithubIcon";
+import MailIcon from "../../components/svg/MailIcon";
 export default function Footer() {
   const handleNavigateGit = () => {
     window.location.href = "https://github.com/anicperica";

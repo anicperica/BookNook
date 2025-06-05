@@ -3,7 +3,7 @@ import DiscoverPage from "./pages/DiscoveryPage/DiscoverPage";
 import LibraryPage from "./pages/LibraryPage/LibraryPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Layout from "./components/Layout";
+import Layout from "./components/layout/Layout";
 function App() {
   return (
     <>

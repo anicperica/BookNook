@@ -1,6 +1,6 @@
 import type { IconProps } from "../../types";
 
-export default function BookIcon({
+export default function BurgerIcon({
   className,
   width = "12",
   height = "12",
