@@ -22,38 +22,62 @@ This project was built as part of an internship coding assignment. It demonstrat
 - 🎨 **Modern UI** – Styled with Tailwind CSS
 
 
-##🚀 Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18+ recommended)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [npm](https://www.npmjs.com/) 
 
 ### Installation
 
 1. **Clone the repository:**
+```bash
+   git clone https://github.com/anicperica/BookNook
    
-   git clone https://github.com/your-username/booknook.git
-   cd booknook
-
-2. Install dependencies:
-
-  npm install
-  or
-  yarn install
-
-3. Set up environment variables:
+   cd BookNook
+```
+3. **Install dependencies:**
+```bash
+   npm install
+```
+3. **Set up environment variables:**
    Create a .env file in the root with:
-   
+```bash
    VITE_API_BASE_URL=https://bootcamp2025.depster.me
    
    VITE_API_LOGIN_ENDPOINT=https://bootcamp2025.depster.me/login
-
+```
 ## Scripts
-npm run dev – Start development server
+* npm run dev – Start development server
 
-npm run build – Build for production
+* npm run build – Build for production
 
-npm run start – Preview production build
+* npm run start – Preview production build
 
-npm run lint – Lint code
+* npm run lint – Lint code
+
+## 🔐 Authentication & Login
+
+This application does **not include a public registration page**. As per the internship instructions, only users who applied for the internship and were pre-approved can log in.
+
+### 📝 How Login Works
+
+- You must log in using the **email address submitted during your internship application**
+- Registration is handled **externally** and not part of this application
+- During development, account setup and token retrieval were done using tools like **Postman**
+
+### ✅ Credentials Format
+
+- **Email** – Must match the one used for internship registration  
+- **Password** – As provided or set during initial registration
+
+### 🔁 Authentication Flow
+
+1. The user enters their email and password into the login form
+2. On success, a **JWT token** is returned from the API and stored in a **browser cookie**
+3. This cookie is included in future API requests to authenticate the user
+4. If the login fails (e.g., wrong credentials), an error message is shown
+5. Key features (like fetching and saving books) are only available to authenticated users
+
+> ⚠️ The token is stored in a **regular browser cookie** (not HTTP-only). This works for the assignment but may not be suitable for production apps where enhanced security is required.
