@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import DiscoverContent from "../../components/DiscoverContent";
+import DiscoverContent from "../../components/discover/DiscoverContent";
 import BookList from "../../components/BookList";
 
 export default function DiscoverPage() {

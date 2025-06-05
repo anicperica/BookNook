@@ -1,6 +1,6 @@
-import BookIcon from "./svg/BookIcon";
-import RefreshIcon from "./svg/RefreshIcon";
-import DiscoverButton from "./ui/DiscoverButton";
+import BookIcon from "../svg/BookIcon";
+import RefreshIcon from "../svg/RefreshIcon";
+import DiscoverButton from "../ui/DiscoverButton";
 
 const LIMIT_ARRAY = [1, 2, 3];
 

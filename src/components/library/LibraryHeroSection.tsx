@@ -1,4 +1,4 @@
-import HearthIcon from "../components/svg/HearthIcon";
+import HearthIcon from "../../components/svg/HearthIcon"
 
 export default function LibraryHeroSection() {
   return (

@@ -1,6 +1,6 @@
-import LibraryHeroSection from "../../components/LibraryHeroSection";
+import LibraryHeroSection from "../../components/library/LibraryHeroSection";
 
-import LibraryBookList from "../../components/LibraryBookList";
+import LibraryBookList from "../../components/library/LibraryBookList";
 
 export default function LibraryPage() {
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import BookCard from "./BookCard";
-import type { Book } from "../types";
+import BookCard from "../BookCard";
+import type { Book } from "../../types";
 
 export default function LibraryBookList() {
   const [savedBooks, setSavedBooks] = useState<Book[]>(() =>

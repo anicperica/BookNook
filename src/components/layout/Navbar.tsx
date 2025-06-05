@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
-import BookIcon from "./svg/BookIcon";
-import BurgerIcon from "./svg/BurgerIcon";
-import BurgerMenu from "./BurgerMenu";
-import XIcon from "../components/svg/XICon";
+import BookIcon from "../svg/BookIcon";
+import BurgerIcon from "../svg/BurgerIcon";
+import BurgerMenu from "../BurgerMenu";
+import XIcon from "../svg/XICon";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

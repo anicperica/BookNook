@@ -1,6 +1,6 @@
 import type { IconProps } from "../../types";
 
-export default function RefreshIcon({
+export default function HearthIcon({
   className,
   width = "25",
   height = "25",
