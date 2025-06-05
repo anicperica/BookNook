@@ -44,13 +44,17 @@ This project was built as part of an internship coding assignment. It demonstrat
    VITE_API_LOGIN_ENDPOINT=https://bootcamp2025.depster.me/login
 ```
 ## Scripts
-* npm run dev – Start development server
+Development mode:
+```bash
+* npm run dev 
+```
+Production mode:
+```bash
+* npm run build 
 
-* npm run build – Build for production
+* npm run start 
+```
 
-* npm run start – Preview production build
-
-* npm run lint – Lint code
 
 ## 🔐 Authentication & Login
 
