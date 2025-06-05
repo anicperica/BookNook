@@ -18,9 +18,15 @@ export default function LibraryBookList() {
 
   return (
     
-    <div className="grid grid-cols-1 sm:grid-cols-2 custom:grid-cols-3  mx-auto gap-5 mb-6 ">
-      {savedBooks.length === 0 && <p className="text-xl max-sm:text-xl max-sm:text-center">Your library is empty. Save books to see them here..</p>}
-      {savedBooks.map((book, index) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 custom:grid-cols-3 flex-grow mx-auto gap-5 mb-6 ">
+     {savedBooks.length === 0 ? (
+      <div className="col-span-full flex items-center justify-center w-full h-full">
+        <p className="text-xl text-center max-sm:text-xl">
+          Your library is empty. Save books to see them here..
+        </p>
+      </div>
+    ) : (
+      savedBooks.map((book, index) => (
         <BookCard
           key={index}
           title={book.title}
@@ -28,8 +34,9 @@ export default function LibraryBookList() {
           isSaved={true}
           onSave={() => handleRemove(book)}
         />
-      ))}
-    </div>
+      ))
+    )}
+  </div>
   
   
   );
