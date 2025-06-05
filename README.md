@@ -24,11 +24,6 @@ This project was built as part of an internship coding assignment. It demonstrat
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v18+ recommended)
-- [npm](https://www.npmjs.com/) 
-
 ### Installation
 
 1. **Clone the repository:**
