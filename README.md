@@ -8,6 +8,10 @@ A React app that fetches random books and lets users save them to a personal lib
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
 
 
+## 🌐 Live Demo
+
+Check out the live application here: [BookNook](https://book-nook-alpha.vercel.app/)
+
 ## 💡 Purpose
 
 This project was built as part of an internship coding assignment. It demonstrates my skills in building a user-authenticated React app that interacts with an external API and manages state effectively, including local storage usage.
